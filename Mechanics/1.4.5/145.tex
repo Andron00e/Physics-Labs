@@ -1,4 +1,5 @@
 \documentclass[13pt,a4paper]{article}
+
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage[OT1]{fontenc}
@@ -6,6 +7,13 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+
+\usepackage{mathtext}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[export]{adjustbox}
+
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{calc}
 \usepackage{wrapfig}
@@ -115,7 +123,7 @@
 
 
 \subsection{Частоты на более высоких гармониках}
-Пропорционально увеличивая частоту в $n$ раз мы получаем картину стоячих волн на n-ой гармонике. 
+Пропорционально увеличивая частоту в $n$ раз мы получаем картину стоячих волн на n-ой гармонике.
 
 
 \subsection{Работа с осциллографом}
@@ -127,39 +135,174 @@
 По результатам этих измерений построим графики $\nu_{n}(n)$ для различных $T$. Определим скорости волн $n$ и оценим ее погрешность. Погрешности $\nu$ принимаем 0,2 Гц.
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-№ измерения & 1        & 2        & 3        & 4        & 5        & 6        \\ \hline
-$\nu_{1}$, Гц      & 132    & 136,2    & XXX    & XXX    & XXX    & XXX    \\ \hline
-$\nu_{2}$, Гц      & 272,4    & 276    & XXX   & XXX      & XXX    & XXX    \\ \hline
-$\nu_{3}$, Гц      & 408,6    & 413,2    & XXX    & XXX      & XXX    & XXX    \\ \hline
-$\nu_{4}$, Гц      & 544    & 552    & XXX    & XXX    & XXX      & XXX    \\ \hline
-$\nu_{5}$, Гц      & 681      & 690,4    & XXX    & XXX     & XXX     & XXX     \\ \hline
-$\nu_{6}$, Гц      & XXX    & XXX     & XXX     & XXX   & XXX   & XXX   \\ \hline
-$\nu_{7}$, Гц      & 953,4    & 971,5     & XXX   & XXX   & XXX   & XXX   \\ \hline
-$\nu_{8}$, Гц      & XXX     & XXX  & 1525  & XXX & XXX & XXX \\ \hline
-$\nu_{9}$, Гц      & 1224   & 1256 & 1713,5 & XXX & XXX & XXX \\ \hline
-\end{tabular}
-\caption{Результаты измерений частот гармоник в зависимости от массы нагрузки.}
-\label{tab:measuring_results}
+\begin{center}
+				\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+					\hline
+					№ гарм. & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & $\nu_{th}$ \\ \hline
+					$\nu$ & 136,2 & 276 & 413,2 & 552 & 690,4 & 815,3 & 971,5 & 1086,4 & 1256 & 132 \\ \hline
+					 $u$ & 136,2 & 137,9 & 137,7 & 138 & 138,1 & 136,9 & 138,7 & 136,8 & 139,6& 137.7 \\ \hline
+				\end{tabular}
+				\caption{Для натяжения $T_{1}=10,5$Н}
+				\label{tab:mass_of_load_for_all_measuring}
+			\end{center}
 \end{table}
+
+
+\begin{table}[h!]
+\begin{center}
+				\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+					\hline
+					№ гарм. & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & $\nu_{th}$\\ \hline
+					$\nu$ & 162,6 & 327,3 & 491,4 & 656 & 821,2 & 986,3 & 1152,1 & 1319,7 & 1485,9 & 164 \\ \hline
+					 $u$ & 162,6 & 163,7 & 163,8 & 164 & 164,2 & 164,4 & 164,6 & 165 & 165,1 &$\bar{u}=164,2$\\ \hline
+				\end{tabular}
+				\caption{Для натяжения $T_{2}=15,3$Н}
+				\label{tab:mass_of_load_for_all_measuring2}
+			\end{center}
+\end{table}
+
+
+\begin{table}[h!]
+\begin{center}
+				\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+					\hline
+					№ гарм. & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & $\nu_{th}$\\ \hline
+					$\nu$ & 187,1 & 376,4 & 563,8 & 752 & 941,3 & 1130,9 & 1320,5 & 1511,7 & 1702,7 & 188 \\ \hline
+					 $u$ & 187,1 & 188,2 & 187,9 & 188 & 188,3 & 188,5 & 189, & 189 & 189,2 & $\bar{u}=188,3$\\ \hline
+				\end{tabular}
+				\caption{Для натяжения $T_{3}=20,1$Н}
+				\label{tab:mass_of_load_for_all_measuring3}
+			\end{center}
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+				\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+					\hline
+					№ гарм. & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & $\nu_{th}$\\ \hline
+					$\nu$ & 208,9 & 419,2 & 628,5 & 838,6 & 1048,7 & 1259,1 & 1468 & 1676,8 & 1893 & 209,8 \\ \hline
+					 $u$ & 208,9 & 209,6 & 209,5 & 209,7 & 209,7 & 209,9 & 209,7 & 209,6 & 210,3 & $\bar{u}=209,7$\\ \hline
+				\end{tabular}
+				\caption{Для натяжения $T_{3}=25$Н}
+				\label{tab:mass_of_load_for_all_measuring4}
+			\end{center}
+\end{table}
+
+
+\textbf{Теперь посмтроим графики $\nu_{n}$}:\\
+\\
+\\
+\begin{minipage}[h]{2\textwidth}
+
+\begin{tikzpicture}[scale = 1.5]
+\begin{axis}[
+axis lines = left,
+xlabel = {$n$},
+ylabel = {$\nu$},
+xmin = 0, xmax = 9,
+ymin = 130, ymax = 1900,
+ymajorgrids = true,
+xmajorgrids = true
+]
+\addplot[
+mark = square,
+ymajorgrids = true,
+xmajorgrids = true,
+color = blue
+] coordinates {
+(1, 136.2) (2, 276) (3, 413.2) (4, 552) (5, 690.4) (6, 815.3) (7, 971.5) (8, 1086.4) (9, 1256)
+}; 
+\addplot[
+mark = square,
+ymajorgrids = true,
+xmajorgrids = true,
+color = red
+] coordinates {
+(1, 162.6) (2, 327.3) (3, 491.4) (4, 656) (5, 821.2) (6, 986.3) (7, 1152.1) (8, 1319.7) (9, 1485.9)
+};
+\addplot[
+mark = square,
+ymajorgrids = true,
+xmajorgrids = true,
+color = green
+] coordinates {
+(1, 187.1) (2, 376.4) (3, 563.8) (4, 752) (5, 941.3) (6, 1130.9) (7, 1320.5) (8, 1511.7) (9, 1702.7)
+};  
+\end{axis}
+\end{tikzpicture}
+
+\end{minipage}
+
+	Из полученного графика определим коэффициенты угла наклона прямых, они то и будут равны $\frac{u}{2L}$, поэтому мы определим значения скоростей $u$ и занесем их в таблицы \ref{tab:mass_of_load_for_all_measuring},  \ref{tab:mass_of_load_for_all_measuring2}, \ref{tab:mass_of_load_for_all_measuring3}, \ref{tab:mass_of_load_for_all_measuring4}.
 \newpage
+
 
 \subsection{Фигуры Лиссажу}
 Уменьшим частоту возбуждения в два раза, для нас это значение равно $\nu=\frac{\nu_{1}}{2}=95,7 Hz$. Фигура, появившаяся на экране осциллографа:
-
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width = 0.8\textwidth]{lissajous}
+		\caption{Фигура Лиссажу}
+		\label{fig:u2t}
+	\end{center}
+\end{figure}
 
 \subsection{Добротность}
 Определим добротность $Q$ струны как колебательной системы, измерив её амплитудно-частотную характеристику (АЧХ) вблизи одной из резонансных частот ($\nu_{1}$ или $\nu_{3}$) для нескольких натяжений струны (по указанию преподавателя).
-Для расчетов используем $Q=\frac{\nu_{resonance}}{\Delta\nu}$
+Для расчетов используем $Q=\frac{\nu_{resonance}}{\Delta\nu}$.
 
 
 \subsection{Ещё график}
 Построим график зависимости $u^2(T)$. Определим погонную плотность $\rho_{l}$ струны и оценим погрешность результата. Сравним результаты с указанными на установке.
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width = 0.8\textwidth]{u2t}
+		\caption{График зависимости $u^2(T)$}
+		\label{fig:u2t}
+	\end{center}
+\end{figure}
 
+\begin{minipage}[h]{2\textwidth}
 
+\begin{tikzpicture}[scale = 1.5]
+\begin{axis}[
+axis lines = left,
+xlabel = {$T$, H},
+ylabel = {$u^2$, $(\frac{m}{s})^2 * 10^4$},
+xmin = 0, xmax = 30,
+ymin = 0, ymax = 5,
+ymajorgrids = true,
+xmajorgrids = true
+]
+\addplot[
+ymajorgrids = true,
+xmajorgrids = true,
+color = blue
+] coordinates {
+(10.5, 1.8961) (15.3, 2.6961) (20.1, 3.5456) (25, 4.3974) 
+}; 
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\overline{u}$  & 137,7 & 164,2 & 188,3 & 209,7 \\ \hline
+$\sigma_{u}$     & 2   & 8   & 4   & 3  \\ \hline
+$\varepsilon_{u}$   & 0,017 & 0,048 & 0,020 & 0,015\\ \hline
+\end{tabular}
+\caption{Определение погрешности измерения скорости}
+\label{tab:velocity_with_mistakes}
+\end{table}
 \section{Выводы}
+\begin{enumerate}
+\item Во время выполнения работы было подтверждено несколько теоретических зависимостей между физическими величинами. С точностью $\varepsilon_{\nu_{1}} = 0,022$ подтверждена формула для определения частот гармоники струны. С точностью  $\overline{\varepsilon_{u}} = 0,03$ подтверждена формула для определения скорости распространения волны в твердом теле под действием внешней силы.
+\item Графики очень хорошо отображают линейную зависимость.
+\item Геометрические размеры тел определены не так точно, как хотелось бы, но результаты не очень различны.
+\item Удалось зафиксировать фигуру Лиссажу 
+\item Из-за большой погрешности амплитуды не удалось определить добротность осциллятора. 
+\end{enumerate}	
 
-
-\end{document}
+\end{document} 
