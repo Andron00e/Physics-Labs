@@ -79,6 +79,7 @@ $L = 570\pm5 \; {мм}.$\\
 Затем включим звуковой генератор с осциллографом и дадим им прогреться 5-7 минут.\\
 Зададим амплитуду и частоту сигнала на генераторе так, чтобы на осциллографе можно было пронаблюдать сигнал. Он должен быть неискаженным синусоидальным. Если он будет искаженным, уменьшим амплитуду.\\
 
+\textbf{Измерение скорости звука в воздухе.}\\
 При изменении длины в $230 \text{мм}$, для того, чтобы при скорости в $340\text{м}/\text{с}$ было $\approx 4$ резонанса, нужна частота порядка:
 $$f \approx \frac{4\cdot340\text{м}/\text{с}}{2 \cdot 0.23 \text{м}} \approx 3\text{кГц}.$$\\
 Продуем трубу воздухом $\approx 5 \text{мин}$.\\
@@ -99,7 +100,36 @@ $$f \approx \frac{4\cdot340\text{м}/\text{с}}{2 \cdot 0.23 \text{м}} \approx 
 $$\varepsilon f \approx \frac{1}{200} = 0.5\%,$$
 $$\varepsilon L \approx \frac{0.5}{100} = 0.5\%,$$
 что добавит дополнительные $1\%$ погрешности к финальному результату.\\
-Из таблицы видны выбросы на 4 и 10 измерении -- видимо, на них слишком неточно были получены несколько точек. В последующих вычислениях я их не буду учитывать.
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{plot1.PNG}
+    \label{fig:plot1}
+\end{figure} 
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{plot2.PNG}
+    \label{fig:plot2}
+\end{figure} 
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{plot3.PNG}
+    \label{fig:plot3}
+\end{figure} 
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{plot4.PNG}
+    \label{fig:plot4}
+\end{figure} 
+\newpage
+
 Из МНК получается средняя скорость звука:
 $$c = (350\pm3)\frac{\text{м}}{\text{с}}.$$
 
@@ -124,139 +154,79 @@ $$c = (350\pm3)\frac{\text{м}}{\text{с}}.$$
 9&2.50&55&105&160&213&-&-&105.8&1.0&264&3&\\ \hline
 \end{tabular}
 \end{center}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{coplot1.PNG}
+    \label{fig:coplot1}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{coplot2.PNG}
+    \label{fig:coplot2}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{coplot3.PNG}
+    \label{fig:coplot3}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{coplot4.PNG}
+    \label{fig:coplot4}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{coplot5.PNG}
+    \label{fig:coplot5}
+\end{figure}
+\newpage
 
-
-
-\begin{center}
-	\begin{tabular}{lr}
-		
-		\begin{tikzpicture}[scale = 0.7]
-		\begin{axis}[
-		axis lines = left,
-		legend style={at={(1,0.3)}},
-		xlabel = {$k$},
-		ylabel = {$\Delta f, {Гц}$},
-		xmin=0, xmax=5,
-		ymin=0, ymax=1000,
-		ymajorgrids = true,
-		xmajorgrids = true,
-		minor tick num = 4
-		]
-		
-		\addplot+[only marks ] plot[error bars/.cd, y dir=both, y explicit]
-		coordinates {
-			(0,0)
-			(1, 247)
-			(2, 462)
-			(3, 666)
-			(4, 889)
-			(0,0)
-			(1, 253)
-			(2, 457) 
-			(3, 671)
-			(4, 889)
-		};
-		\addplot[red, domain=0:4.5] {14.1 + 219.7*x};
-		\end{axis}
-		\end{tikzpicture}
-		&
-		\begin{tikzpicture}[scale = 0.7]
-		\begin{axis}[
-		axis lines = left,
-		legend style={at={(1,0.3)}},
-		xlabel = {$k$},
-		ylabel = {$\Delta f, {Гц}$},
-		xmin=0, xmax=5,
-		ymin=0, ymax=1000,
-		ymajorgrids = true,
-		xmajorgrids = true,
-		minor tick num = 4
-		]
-		
-		\addplot+[only marks ] plot[error bars/.cd, y dir=both, y explicit]
-		coordinates {
-			(0,0)
-			(1, 266)
-			(2, 471)
-			(3, 701)
-			(4, 905)
-			(0,0)
-			(1, 263)
-			(2, 464) 
-			(3, 680)
-			(4, 897)
-		};
-		\addplot[red, domain=0:4.5] {19.1 + 222.8*x};
-		\end{axis}
-		\end{tikzpicture}
-		
-		\\
-		
-		\begin{tikzpicture}[scale = 0.7]
-		\begin{axis}[
-		axis lines = left,
-		legend style={at={(1,0.3)}},
-		xlabel = {$k$},
-		ylabel = {$\Delta f, {Гц}$},
-		xmin=0, xmax=5,
-		ymin=0, ymax=1000,
-		ymajorgrids = true,
-		xmajorgrids = true,
-		minor tick num = 4
-		]
-		
-		\addplot+[only marks ] plot[error bars/.cd, y dir=both, y explicit]
-		coordinates {
-			(0,0)
-			(1, 229)
-			(2, 451)
-			(3, 668)
-			(4, 893)
-			(0,0)
-			(1, 226)
-			(2, 443) 
-			(3, 668)
-			(4, 890)
-		};
-		\addplot[red, domain=0:4.5] {2.1 + 222.4*x};
-		\end{axis}
-		\end{tikzpicture}
-		&
-		\begin{tikzpicture}[scale = 0.7]
-		\begin{axis}[
-		axis lines = left,
-		legend style={at={(1,0.3)}},
-		xlabel = {$k$},
-		ylabel = {$\Delta f, {Гц}$},
-		xmin=0, xmax=5,
-		ymin=0, ymax=1000,
-		ymajorgrids = true,
-		xmajorgrids = true,
-		minor tick num = 4
-		]
-		
-		\addplot+[only marks ] plot[error bars/.cd, y dir=both, y explicit]
-		coordinates {
-			(0,0)
-			(1, 228)
-			(2, 446)
-			(3, 671)
-			(4, 900)
-			(0,0)
-			(1, 228)
-			(2, 441) 
-			(3, 671)
-			(4, 898)
-				};
-		\addplot[red, domain=0:4.5] { 224.1*x};
-		\end{axis}
-		\end{tikzpicture}
-	\end{tabular}
-\end{center}
-
-Вычислим с помощью полученных графиков скорость звука в воздухе и рассчитаем погрешности. Погрешность $\sigma_{c}$ отдельного измерения определяется следующей формулой:
+Вычислим с помощью полученных графиков скорость звука в углекислом газе и рассчитаем погрешности. Погрешность $\sigma_{c}$ отдельного измерения определяется следующей формулой:
 $$ \sigma_{c} =c \sqrt{\Big(\frac{\sigma_{L}}{L}\Big)^2+ \Big(\frac{\sigma_{A}}{A}\Big)^2},$$
 где $A$ - коэффициент наклона прямой на графике.
+
+$$c = (270\pm3)\frac{\text{м}}{\text{с}}.$$
+
+\textbf{Измерения с включенным термостатом}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{tplot1.PNG}
+    \label{fig:tplot1}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{tplot2.PNG}
+    \label{fig:tplot2}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{tplot3.PNG}
+    \label{fig:tplot3}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{center}
+    \end{center}
+    \includegraphics[width=10 cm]{ctplot340.PNG}
+    \label{fig:ctplot340}
+\end{figure}
+\newpage
 
 По полученным данным расчитаем $\gamma$.
 $$\overline{\gamma} = 1.423$$
